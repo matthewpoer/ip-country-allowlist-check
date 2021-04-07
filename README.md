@@ -72,7 +72,19 @@ curl --silent -X POST http://localhost:5000/v1/ \
 
 This service includes GeoLite2 data created by MaxMind, available from https://www.maxmind.com.
 
-This database should be updated on a periodic basis (e.g. once per quarter). The most recent download date of the database is date-stamped in the directory name housing the database.
+This database should be updated on a periodic basis (e.g. once per quarter). The update process can be accomplished with the following commands:
+
+```sh
+rm -rf GeoLite2-Country* && \
+curl --silent --remote-name --remote-header-name \
+  'https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=[redacted]&suffix=tar.gz' && \
+tar zxf GeoLite2-Country*tar.gz && \
+rm GeoLite2-Country*tar.gz && \
+mv GeoLite2-Country_* GeoLite2-Country
+```
+
+Note that the redacted `license_key` GET parameter must be obtained from a maxmind.com and/or a team password-sharing tool.
+
 
 ## Response Codes
 

@@ -1,8 +1,8 @@
 FROM python:3.9-slim
 
-RUN mkdir -p /app/GeoLite2-Country_20210406
+RUN mkdir -p /app/GeoLite2-Country
 COPY handler.py /app
-COPY GeoLite2-Country_20210406/GeoLite2-Country.mmdb /app/GeoLite2-Country_20210406/GeoLite2-Country.mmdb
+COPY GeoLite2-Country/GeoLite2-Country.mmdb /app/GeoLite2-Country/GeoLite2-Country.mmdb
 COPY requirements.txt /app
 WORKDIR /app
 

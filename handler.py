@@ -29,7 +29,7 @@ def ip_in_country_list(ip_address: str, country_list: list) -> dict:
     # Allows the opportunity of specifying a newer or alternative database file
     maxmind_database_file = os.getenv(
         'MAXMIND_DATABASE_FILE',
-        'GeoLite2-Country_20210406/GeoLite2-Country.mmdb')
+        'GeoLite2-Country/GeoLite2-Country.mmdb')
 
     # Determines which country this IP address resides in, checking for errors
     # with the database, IP Address, and whethor or not the IP exists in the
