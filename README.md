@@ -72,6 +72,8 @@ curl --silent -X POST http://localhost:5000/v1/ \
 
 This service includes GeoLite2 data created by MaxMind, available from https://www.maxmind.com.
 
+This database should be updated on a periodic basis (e.g. once per quarter). The most recent download date of the database is date-stamped in the directory name housing the database.
+
 ## Response Codes
 
 There are two potentially valid response codes from the service:
