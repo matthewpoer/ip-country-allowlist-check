@@ -19,6 +19,15 @@ supplied IP address 76.97.242.233 corresponds with US
 result: True
 status_code: 200
 True
+
+> python handler.py --ip_address 76.97.242.233 --country AU CA
+user supplied ip_address 76.97.242.233
+user supplied country list ['AU', 'CA']
+supplied IP address 76.97.242.233 is valid
+supplied IP address 76.97.242.233 corresponds with US
+result: False
+status_code: 200
+False
 ```
 
 ## API Use (JSON via Flask)
@@ -44,6 +53,25 @@ This will give you a JSON result like
 ```json
 {
   "result": true,
+  "status_code": 200,
+  "status_msg": "200 OK"
+}
+```
+
+An example of a negative response:
+
+```sh
+> curl --silent -X POST http://127.0.0.1:5000/v1/ \
+>   --header "Content-Type: application/json" \
+>   --data $'{
+>     "country":[
+>         "AU",
+>         "CA"
+>     ],
+>     "ip_address":"76.97.242.233"
+> }' | jq
+{
+  "result": false,
   "status_code": 200,
   "status_msg": "200 OK"
 }
